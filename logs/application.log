@@ -1,0 +1,40 @@
+2026-06-23T16:39:13.088+05:30  INFO 23624 --- [ProductCrudApp] [restartedMain] in.belenits.ProductCrudAppApplication    : Starting ProductCrudAppApplication using Java 21.0.11 with PID 23624 (C:\Users\Belen ITS\IdeaProjects\ProductCrudApp\target\classes started by Belen ITS in C:\Users\Belen ITS\IdeaProjects\ProductCrudApp)
+2026-06-23T16:39:13.088+05:30  INFO 23624 --- [ProductCrudApp] [restartedMain] in.belenits.ProductCrudAppApplication    : No active profile set, falling back to 1 default profile: "default"
+2026-06-23T16:39:13.139+05:30  INFO 23624 --- [ProductCrudApp] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-23T16:39:13.145+05:30  INFO 23624 --- [ProductCrudApp] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 3 ms. Found 1 JPA repository interface.
+2026-06-23T16:39:13.176+05:30  INFO 23624 --- [ProductCrudApp] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-06-23T16:39:13.177+05:30  INFO 23624 --- [ProductCrudApp] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-06-23T16:39:13.177+05:30  INFO 23624 --- [ProductCrudApp] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-06-23T16:39:13.188+05:30  INFO 23624 --- [ProductCrudApp] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 99 ms
+2026-06-23T16:39:13.203+05:30  INFO 23624 --- [ProductCrudApp] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-06-23T16:39:13.216+05:30  INFO 23624 --- [ProductCrudApp] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-23T16:39:13.217+05:30  INFO 23624 --- [ProductCrudApp] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-16 - Starting...
+2026-06-23T16:39:13.218+05:30  INFO 23624 --- [ProductCrudApp] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-16 - Added connection conn152: url=jdbc:h2:mem:productdb user=SA
+2026-06-23T16:39:13.218+05:30  INFO 23624 --- [ProductCrudApp] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-16 - Start completed.
+2026-06-23T16:39:13.219+05:30  WARN 23624 --- [ProductCrudApp] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-23T16:39:13.219+05:30  INFO 23624 --- [ProductCrudApp] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:productdb]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: PRODUCTDB/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-23T16:39:13.236+05:30  INFO 23624 --- [ProductCrudApp] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-23T16:39:13.238+05:30  INFO 23624 --- [ProductCrudApp] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T16:39:13.258+05:30  WARN 23624 --- [ProductCrudApp] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-23T16:39:13.305+05:30  INFO 23624 --- [ProductCrudApp] [restartedMain] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:productdb'
+2026-06-23T16:39:13.313+05:30  INFO 23624 --- [ProductCrudApp] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-06-23T16:39:13.314+05:30  INFO 23624 --- [ProductCrudApp] [restartedMain] in.belenits.ProductCrudAppApplication    : Started ProductCrudAppApplication in 0.258 seconds (process running for 3307.38)
+2026-06-23T16:39:13.315+05:30  INFO 23624 --- [ProductCrudApp] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-06-23T16:45:49.887+05:30  INFO 23624 --- [ProductCrudApp] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-06-23T16:45:49.891+05:30  INFO 23624 --- [ProductCrudApp] [Thread-62] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-06-23T16:45:49.901+05:30  INFO 23624 --- [ProductCrudApp] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-06-23T16:45:49.904+05:30  INFO 23624 --- [ProductCrudApp] [Thread-62] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T16:45:49.906+05:30  WARN 23624 --- [ProductCrudApp] [Thread-62] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-240]
+2026-06-23T16:45:49.906+05:30  INFO 23624 --- [ProductCrudApp] [Thread-62] com.zaxxer.hikari.HikariDataSource       : HikariPool-16 - Shutdown initiated...
+2026-06-23T16:45:49.909+05:30  INFO 23624 --- [ProductCrudApp] [Thread-62] com.zaxxer.hikari.HikariDataSource       : HikariPool-16 - Shutdown completed.
