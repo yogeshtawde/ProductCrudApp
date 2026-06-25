@@ -1,12 +1,16 @@
 package in.belenits.service;
 
-import in.belenits.entity.Product;
+import in.belenits.dto.ProductDTO;
 
-public interface IProductService
-{
+import java.io.IOException;
 
-    public String addProduct(Product product);
-    public Product getProduct(Integer productId);
-    public String updateProduct(Integer productId,Product product);
-    public String deleteProduct(Integer productId);
+public interface IProductService {
+
+    ProductDTO addProduct(ProductDTO productDTO) throws IOException;
+
+    ProductDTO getProduct(Integer productId);
+
+    ProductDTO updateProduct(Integer productId, ProductDTO productDTO) throws IOException;
+
+    ProductDTO deleteProduct(Integer productId);
 }

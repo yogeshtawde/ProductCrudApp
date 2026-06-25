@@ -1,14 +1,16 @@
 package in.belenits.controller;
 
-
-import in.belenits.entity.Product;
+import in.belenits.dto.ProductDTO;
+import in.belenits.response.ApiResponse;
 import in.belenits.service.IProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import java.io.IOException;
 
 
 @RestController
@@ -16,64 +18,80 @@ import org.springframework.web.bind.annotation.*;
 public class ProductManagementController
 {
 
-
     @Autowired
     private IProductService service;
 
     private static final Logger logger = LoggerFactory.getLogger(ProductManagementController.class);
 
-
-
-    @PostMapping("/addProduct")
-    public ResponseEntity<String> addProductDetails(@RequestBody Product product)
+    @PostMapping(value = "/add", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<ApiResponse<ProductDTO>> addProductDetails(@ModelAttribute ProductDTO productDTO) throws IOException
     {
+
         logger.info("POST Request Received to Save Product");
-        String message = service.addProduct(product);
+
+        ProductDTO result = service.addProduct(productDTO);
+
+        ApiResponse<ProductDTO> response = new ApiResponse<>();
+
+        response.setStatus(201);
+        response.setMessage("Product Saved Successfully");
+        response.setData(result);
+
         logger.info("Product Saved Successfully");
-        return new ResponseEntity<>(message, HttpStatus.CREATED);
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
 
-    @GetMapping("/getProduct/{productId}")
-    public ResponseEntity<Product> getProductDetails(@PathVariable Integer productId)
+    @GetMapping("/{productId}")
+    public ResponseEntity<ApiResponse<ProductDTO>> getProductDetails(
+            @PathVariable Integer productId)
     {
 
         logger.info("GET Request Received for Product Id : {}", productId);
 
-        Product product = service.getProduct(productId);
+        ProductDTO productDTO = service.getProduct(productId);
 
-        logger.info("Product Details Returned Successfully for Product Id : {}", productId);
+        ApiResponse<ProductDTO> response = new ApiResponse<>();
 
-        return new ResponseEntity<>(product, HttpStatus.OK);
+        response.setStatus(200);
+        response.setMessage(
+                "Product Details Fetched Successfully");
+        response.setData(productDTO);
+
+        return ResponseEntity.ok(response);
     }
 
 
-    @PutMapping("/updateProduct/{productId}")
-    public ResponseEntity<String> updateProductDetails(@PathVariable Integer productId, @RequestBody Product product)
+    @PutMapping(value = "/{productId}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<ApiResponse<ProductDTO>> updateProductDetails(@PathVariable Integer productId, @ModelAttribute ProductDTO productDTO) throws IOException
     {
 
         logger.info("UPDATE Request Received for Product Id : {}", productId);
 
-        String resMsg = service.updateProduct(productId, product);
+        ProductDTO result = service.updateProduct(productId, productDTO);
 
-        logger.info("Update Operation Completed for Product Id : {}", productId);
+        ApiResponse<ProductDTO> response = new ApiResponse<>();
 
-        return new ResponseEntity<>(resMsg, HttpStatus.OK);
+        response.setStatus(200);
+        response.setMessage("Product Updated Successfully");
+        response.setData(result);
+
+        return ResponseEntity.ok(response);
     }
 
 
-    @DeleteMapping("/deleteProduct/{productId}")
-    public ResponseEntity<String> deleteProductDetails(@PathVariable Integer productId)
+    @DeleteMapping("/{productId}")
+    public ResponseEntity<ApiResponse<ProductDTO>> deleteProductDetails(@PathVariable Integer productId)
     {
 
         logger.info("DELETE Request Received for Product Id : {}", productId);
+        ProductDTO productDTO = service.deleteProduct(productId);
+        ApiResponse<ProductDTO> response = new ApiResponse<>();
+        response.setStatus(200);
+        response.setMessage("Product Deleted Successfully");
+        response.setData(productDTO);
 
-        String resMsg = service.deleteProduct(productId);
-
-        logger.info("Delete Operation Completed for Product Id : {}", productId);
-
-        return new ResponseEntity<>(resMsg, HttpStatus.OK);
+        return ResponseEntity.ok(response);
     }
 
-    
 }
