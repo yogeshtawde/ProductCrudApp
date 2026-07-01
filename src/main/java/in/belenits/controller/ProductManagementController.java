@@ -23,6 +23,8 @@ public class ProductManagementController
 
     private static final Logger logger = LoggerFactory.getLogger(ProductManagementController.class);
 
+
+
     @PostMapping(value = "/add", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<ApiResponse<ProductDTO>> addProductDetails(@ModelAttribute ProductDTO productDTO) throws IOException
     {

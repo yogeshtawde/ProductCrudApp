@@ -186,7 +186,7 @@ public class ProductServiceImpl implements IProductService {
                                 new ProductNotFoundException(
                                         "Product not found with Id : "
                                                 + productId));
-
+        
         product.setActiveSW("NO");
 
         Product deletedProduct =
